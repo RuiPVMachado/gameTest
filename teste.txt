@@ -31,20 +31,20 @@ Buildings
     cost:1000 gold
     on tick:give 10 gold
 
-UpgradesList
-  *efficientMining
+Upgrades
+  *goldMineUpgrade
     name:Efficient Mining
     desc:Gold Mines produce twice as much gold.
     cost:500 gold
     on apply:multiply yield of goldMine by 2
 
-  *advancedMachinery
+  *goldFactoryUpgrade
     name:Advanced Machinery
     desc:Gold Factories produce twice as much gold.
     cost:5000 gold
     on apply:multiply yield of goldFactory by 2
 
-AchievementsList
+Achievements
   *firstGold
     name:First Gold
     desc:Collect your first piece of gold.
@@ -70,15 +70,15 @@ Layout
   *resources
     contains:Resources
     header:Resources
-  *buildings
+  *allBuildings
     contains:BulkDisplay, Buildings
     header:Buildings
     tooltip origin:left
-  *upgrades
-    contains:UpgradesList
+  *allUpgrades
+    contains:Upgrades
     header:Upgrades
     costs:hide
     names:hide
-  *achievements
-    contains:AchievementsList
+  *allAchievements
+    contains:Achievements
     header:Achievements
