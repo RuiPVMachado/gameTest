@@ -10,8 +10,6 @@ Settings
   background:url('background.jpg')
   building cost increase:115%
   building cost refund:50%
-  spritesheet:icons, 48 by 48, url('spritesheet.jpg')
-  stylesheet:stuff/bigBlue.css
 
 Resources
   *gold
