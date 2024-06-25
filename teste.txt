@@ -1,57 +1,84 @@
 Let's make a game!
+  name:Resource Tycoon
+  author:Your Name
+  desc:Collect resources, build structures, and unlock upgrades to become the ultimate tycoon.
+  created:25/06/2024
+  updated:25/06/2024
+  version:1.0
 
-resources {
-  Money
-  Wood
-  Stone
-}
+Settings
+  background:url('background.jpg')
+  building cost increase:115%
+  building cost refund:50%
+  spritesheet:icons, 48 by 48, url('spritesheet.jpg')
+  stylesheet:stuff/bigBlue.css
 
-buildings {
-  WoodCutter {
-    name: "Wood Cutter"
-    cost: {Money: 10}
-    generates: {Wood: 1 per 1s}
-  }
-  StoneMiner {
-    name: "Stone Miner"
-    cost: {Money: 20}
-    generates: {Stone: 1 per 2s}
-  }
-}
+Resources
+  *gold
+    name:Gold
+    desc:Precious gold used for buying buildings and upgrades.
 
-upgrades {
-  BetterAxes {
-    name: "Better Axes"
-    cost: {Money: 50, Wood: 10}
-    effect: "WoodCutter production doubled"
-  }
-  StrongerPicks {
-    name: "Stronger Picks"
-    cost: {Money: 100, Stone: 20}
-    effect: "StoneMiner production doubled"
-  }
-}
+Buildings
+  *goldMine
+    name:Gold Mine
+    desc:Produces 1 gold per second.
+    cost:100 gold
+    on tick:give 1 gold
 
-achievements {
-  FirstWood {
-    name: "First Piece of Wood"
-    description: "Collect 1 Wood"
-    condition: {Wood: 1}
-  }
-  FirstStone {
-    name: "First Stone"
-    description: "Collect 1 Stone"
-    condition: {Stone: 1}
-  }
-  MoneyBags {
-    name: "Money Bags"
-    description: "Collect 100 Money"
-    condition: {Money: 100}
-  }
-}
+  *goldFactory
+    name:Gold Factory
+    desc:Produces 10 gold per second.
+    cost:1000 gold
+    on tick:give 10 gold
 
-options {
-  title: "My Complete Idle Game"
-  theme: "default"
-  initialResources: {Money: 0, Wood: 0, Stone: 0}
-}
+Upgrades
+  *efficientMining
+    name:Efficient Mining
+    desc:Gold Mines produce twice as much gold.
+    cost:500 gold
+    on apply:multiply yield of goldMine by 2
+
+  *advancedMachinery
+    name:Advanced Machinery
+    desc:Gold Factories produce twice as much gold.
+    cost:5000 gold
+    on apply:multiply yield of goldFactory by 2
+
+Achievements
+  *firstGold
+    name:First Gold
+    desc:Collect your first piece of gold.
+    req:1 gold
+
+  *hundredGold
+    name:Hundred Gold
+    desc:Collect 100 pieces of gold.
+    req:100 gold
+
+  *firstBuilding
+    name:First Building
+    desc:Construct your first building.
+    req:1 goldMine
+
+  *goldMillionaire
+    name:Gold Millionaire
+    desc:Collect 1,000,000 pieces of gold.
+    req:1000000 gold
+
+Layout
+  use default
+  *resources
+    contains:Resources
+    header:Resources
+  *buildings
+    contains:BulkDisplay, Buildings
+    header:Buildings
+    tooltip origin:left
+  *upgrades
+    contains:Upgrades
+    header:Upgrades
+    costs:hide
+    names:hide
+  *achievements
+    contains:Achievements
+    header:Achievements
