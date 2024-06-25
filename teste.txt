@@ -18,7 +18,7 @@ Resources
     name:Gold
     desc:Precious gold used for buying buildings and upgrades.
 
-Structures
+Buildings
   *goldMine
     name:Gold Mine
     desc:Produces 1 gold per second.
@@ -31,7 +31,7 @@ Structures
     cost:1000 gold
     on tick:give 10 gold
 
-Enhancements
+UpgradesList
   *efficientMining
     name:Efficient Mining
     desc:Gold Mines produce twice as much gold.
@@ -44,7 +44,7 @@ Enhancements
     cost:5000 gold
     on apply:multiply yield of goldFactory by 2
 
-Milestones
+AchievementsList
   *firstGold
     name:First Gold
     desc:Collect your first piece of gold.
@@ -55,8 +55,8 @@ Milestones
     desc:Collect 100 pieces of gold.
     req:100 gold
 
-  *firstStructure
-    name:First Structure
+  *firstBuilding
+    name:First Building
     desc:Construct your first building.
     req:1 goldMine
 
@@ -70,15 +70,15 @@ Layout
   *resources
     contains:Resources
     header:Resources
-  *structures
-    contains:BulkDisplay, Structures
-    header:Structures
+  *buildings
+    contains:BulkDisplay, Buildings
+    header:Buildings
     tooltip origin:left
-  *enhancements
-    contains:Enhancements
-    header:Enhancements
+  *upgrades
+    contains:UpgradesList
+    header:Upgrades
     costs:hide
     names:hide
-  *milestones
-    contains:Milestones
-    header:Milestones
+  *achievements
+    contains:AchievementsList
+    header:Achievements
