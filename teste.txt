@@ -1,3 +1,5 @@
+Let's make a game!
+
 resources {
   Money
   Wood
