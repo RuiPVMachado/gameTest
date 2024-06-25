@@ -18,7 +18,7 @@ Resources
     name:Gold
     desc:Precious gold used for buying buildings and upgrades.
 
-Buildings
+Items
   *goldMine
     name:Gold Mine
     desc:Produces 1 gold per second.
@@ -70,9 +70,9 @@ Layout
   *resources
     contains:Resources
     header:Resources
-  *buildings
-    contains:BulkDisplay, Buildings
-    header:Buildings
+  *items
+    contains:BulkDisplay, Items
+    header:Items
     tooltip origin:left
   *upgrades
     contains:Upgrades
