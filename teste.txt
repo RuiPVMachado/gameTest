@@ -1,0 +1,34 @@
+resources {
+  Money
+  Wood
+}
+
+buildings {
+  WoodCutter {
+    name: "Wood Cutter"
+    cost: {Money: 10}
+    generates: {Wood: 1 per 1s}
+  }
+}
+
+upgrades {
+  BetterAxes {
+    name: "Better Axes"
+    cost: {Money: 50}
+    effect: "WoodCutter production doubled"
+  }
+}
+
+achievements {
+  FirstWood {
+    name: "First Piece of Wood"
+    description: "Collect 1 Wood"
+    condition: {Wood: 1}
+  }
+}
+
+options {
+  title: "My Idle Game"
+  theme: "default"
+  initialResources: {Money: 0, Wood: 0}
+}
