@@ -10,6 +10,8 @@ Settings
   background:url('background.jpg')
   building cost increase:115%
   building cost refund:50%
+  spritesheet:icons, 48 by 48, url('spritesheet.jpg')
+  stylesheet:stuff/bigBlue.css
 
 Resources
   *gold
@@ -18,16 +20,16 @@ Resources
 
 Buildings
   *goldMine
-    name:Gold Mine
-    desc:Produces 1 gold per second.
-    cost:100 gold
-    on tick:give 1 gold
+  name:Gold Mine
+  desc:Produces gold every second.
+  on tick:yield 1 gold
+  cost:100 money
 
   *goldFactory
     name:Gold Factory
     desc:Produces 10 gold per second.
     cost:1000 gold
-    on tick:give 10 gold
+    on tick:yield 10 gold
 
 Upgrades
   *goldMineUpgrade
@@ -46,22 +48,22 @@ Achievements
   *firstGold
     name:First Gold
     desc:Collect your first piece of gold.
-    req:1 gold
+    req:gold >= 1
 
   *hundredGold
     name:Hundred Gold
     desc:Collect 100 pieces of gold.
-    req:100 gold
+    req:gold >= 100
 
   *firstBuilding
     name:First Building
     desc:Construct your first building.
-    req:1 goldMine
+    req:goldMine >= 1
 
   *goldMillionaire
     name:Gold Millionaire
     desc:Collect 1,000,000 pieces of gold.
-    req:1000000 gold
+    req:gold >= 1000000
 
 Layout
   use default
