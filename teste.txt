@@ -3,6 +3,7 @@ Let's make a game!
 resources {
   Money
   Wood
+  Stone
 }
 
 buildings {
@@ -11,13 +12,23 @@ buildings {
     cost: {Money: 10}
     generates: {Wood: 1 per 1s}
   }
+  StoneMiner {
+    name: "Stone Miner"
+    cost: {Money: 20}
+    generates: {Stone: 1 per 2s}
+  }
 }
 
 upgrades {
   BetterAxes {
     name: "Better Axes"
-    cost: {Money: 50}
+    cost: {Money: 50, Wood: 10}
     effect: "WoodCutter production doubled"
+  }
+  StrongerPicks {
+    name: "Stronger Picks"
+    cost: {Money: 100, Stone: 20}
+    effect: "StoneMiner production doubled"
   }
 }
 
@@ -27,10 +38,20 @@ achievements {
     description: "Collect 1 Wood"
     condition: {Wood: 1}
   }
+  FirstStone {
+    name: "First Stone"
+    description: "Collect 1 Stone"
+    condition: {Stone: 1}
+  }
+  MoneyBags {
+    name: "Money Bags"
+    description: "Collect 100 Money"
+    condition: {Money: 100}
+  }
 }
 
 options {
-  title: "My Idle Game"
+  title: "My Complete Idle Game"
   theme: "default"
-  initialResources: {Money: 0, Wood: 0}
+  initialResources: {Money: 0, Wood: 0, Stone: 0}
 }
